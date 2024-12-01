@@ -6,7 +6,7 @@ const pageConfig = {
     { link: 'https://www.swiftpeakhosting.co.uk/', label: 'Home' },
     { link: 'https://store.swiftpeakhosting.co.uk/dashboard', label: 'Store Dashboard' },
     { link: 'https://www.swiftpeakhosting.co.uk/', label: 'Documentation' },
-    { link: 'mailto:support@swiftpeakh.com', label: 'Support', highlight: true },
+    { link: 'https://www.swiftpeakhosting.co.uk/contact', label: 'Support', highlight: true },
   ],
 };
 
