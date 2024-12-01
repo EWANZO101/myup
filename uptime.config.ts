@@ -3,9 +3,9 @@ const pageConfig = {
   title: "Swift Peak Hosting Status Page",
   // Links shown at the header of your status page, could set `highlight` to `true`
   links: [
-    { link: 'https://swiftpeakh.com', label: 'Home' },
+    { link: 'https://www.swiftpeakhosting.co.uk/', label: 'Home' },
     { link: 'https://store.swiftpeakhosting.co.uk/dashboard', label: 'Store Dashboard' },
-    { link: 'https://docs.swiftpeakh.com', label: 'Documentation' },
+    { link: 'https://www.swiftpeakhosting.co.uk/', label: 'Documentation' },
     { link: 'mailto:support@swiftpeakh.com', label: 'Support', highlight: true },
   ],
 };
