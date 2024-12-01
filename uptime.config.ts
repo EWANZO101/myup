@@ -1,7 +1,5 @@
 const pageConfig = {
-  // Title for your status page
   title: "Swift Peak Hosting Status Page",
-  // Links shown at the header of your status page, could set `highlight` to `true`
   links: [
     { link: 'https://www.swiftpeakhosting.co.uk/', label: 'Home' },
     { link: 'https://store.swiftpeakhosting.co.uk/dashboard', label: 'Store Dashboard' },
@@ -11,13 +9,9 @@ const pageConfig = {
 };
 
 const workerConfig = {
-  // Write KV at most every 3 minutes unless the status changed
   kvWriteCooldownMinutes: 3,
-  // Enable HTTP Basic auth for status page & API
   passwordProtection: 'admin:yourpassword',
-  // Define all your monitors here
   monitors: [
-    // Primary Website
     {
       id: 'primary_website_monitor',
       name: 'Swift Peak Hosting Website',
@@ -31,7 +25,6 @@ const workerConfig = {
         'User-Agent': 'SwiftPeakMonitor/1.0',
       },
     },
-    // Store Dashboard
     {
       id: 'store_dashboard_monitor',
       name: 'Store Dashboard',
@@ -42,7 +35,6 @@ const workerConfig = {
       expectedCodes: [200],
       timeout: 10000,
     },
-    // Panel Maintenance
     {
       id: 'panel_maintenance_monitor',
       name: 'Control Panel (Maintenance)',
@@ -50,10 +42,9 @@ const workerConfig = {
       target: 'https://panel.swiftpeakhosting.co.uk/',
       tooltip: 'Currently down for maintenance',
       statusPageLink: 'https://panel.swiftpeakhosting.co.uk/',
-      expectedCodes: [503], // Expecting a maintenance response code
+      expectedCodes: [503],
       timeout: 10000,
     },
-    // Node PHP Monitor
     {
       id: 'node1_php_monitor',
       name: 'Node 1 PHP Service',
@@ -64,7 +55,6 @@ const workerConfig = {
       expectedCodes: [200],
       timeout: 10000,
     },
-    // VPS Panel N4
     {
       id: 'vps_panel_n4_monitor',
       name: 'VPS Panel Node 4',
@@ -75,7 +65,6 @@ const workerConfig = {
       expectedCodes: [200],
       timeout: 10000,
     },
-    // VPS Panel Scotland
     {
       id: 'vps_panel_n1_scotland_monitor',
       name: 'VPS Panel Node 1 Scotland',
@@ -95,21 +84,21 @@ const workerConfig = {
   },
   callbacks: {
     onStatusChange: async (
-      env,
-      monitor,
-      isUp,
-      timeIncidentStart,
-      timeNow,
-      reason
+      env: Record<string, any>, // Type for environment variables
+      monitor: { name: string }, // Minimal type; expand as needed
+      isUp: boolean,
+      timeIncidentStart: Date | null,
+      timeNow: Date,
+      reason: string
     ) => {
       console.log(`Status of monitor ${monitor.name} changed to ${isUp ? 'UP' : 'DOWN'}`);
     },
     onIncident: async (
-      env,
-      monitor,
-      timeIncidentStart,
-      timeNow,
-      reason
+      env: Record<string, any>,
+      monitor: { name: string },
+      timeIncidentStart: Date,
+      timeNow: Date,
+      reason: string
     ) => {
       console.log(`Ongoing incident detected for monitor ${monitor.name}: ${reason}`);
     },
