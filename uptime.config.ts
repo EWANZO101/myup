@@ -35,16 +35,6 @@ const workerConfig = {
       timeout: 10000,
     },
     {
-      id: 'panel_maintenance_monitor',
-      name: 'Control Panel (Maintenance)',
-      method: 'GET',
-      target: 'https://panel.swiftpeakhosting.co.uk/',
-      tooltip: 'Currently down for maintenance',
-      statusPageLink: 'https://panel.swiftpeakhosting.co.uk/',
-      expectedCodes: [503],
-      timeout: 10000,
-    },
-    {
       id: 'node1_php_monitor',
       name: 'Node 1 PHP Service',
       method: 'GET',
