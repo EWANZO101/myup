@@ -64,6 +64,17 @@ const workerConfig = {
       expectedCodes: [200],
       timeout: 10000,
     },
+
+    {
+      id: 'vps_panel_n1_USA_monitor',
+      name: 'Coming Soon VPS Panel Node 1 USA',
+      method: 'GET',
+      target: 'https://vps-panel-n1-scotland.swiftpeakhosting.co.uk/#v1:0:18:4:::::::',
+      tooltip: 'VPS management panel for Node 1 in USA',
+      statusPageLink: 'https://vps-panel-n1-scotland.swiftpeakhosting.co.uk/#v1:0:18:4:::::::',
+      expectedCodes: [200],
+      timeout: 10000,
+    },
   ],
   notification: {
     appriseApiServer: "https://notify.swiftpeakh.com",
